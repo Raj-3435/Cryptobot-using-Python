@@ -94,7 +94,7 @@ def has_exact_word(words, text):
 
 # ✅ Configure Gemini
 genai.configure(api_key="")  # Replace with your Gemini API key
-model = genai.GenerativeModel("gemini-1.5-flash")
+model = genai.GenerativeModel("gemini-2.5-flash")
 
 # ✅ Allowed greetings/meta prompts
 greeting_keywords = ["hello", "hola", "hi", "hey", "good morning", "good evening", "good night", "thanks", "thank you", "bye", "goodbye"]
@@ -247,4 +247,5 @@ st.markdown("""
 <div style='text-align: center; font-size: 14px; color: gray;'>
     🤖 Made with ❤️ by <strong><a href="https://github.com/Raj-3435" target="_blank">Aditya Raj</a></strong>  
 </div>
+
 """, unsafe_allow_html=True)

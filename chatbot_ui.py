@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 from crypto_data import get_crypto_price, get_historical_price  # Import CoinGecko functions
 from designs import apply_glitch_title, apply_status_bar, load_custom_fonts, glassmorphic_chat, style_chat_bubbles, style_input_box, futuristic_buttons
@@ -93,7 +94,11 @@ def has_exact_word(words, text):
     return any(re.search(rf"\b{re.escape(word)}\b", text) for word in words)
 
 # ✅ Configure Gemini
-genai.configure(api_key="")  # Replace with your Gemini API key
+API_KEY = st.secrets.get("API_KEY") or os.getenv("API_KEY")
+if not API_KEY:
+    st.error("⚠️ API key not found. Please set it in Streamlit Secrets or environment variables.")
+else:
+    genai.configure(api_key=API_KEY)
 model = genai.GenerativeModel("gemini-2.5-flash")
 
 # ✅ Allowed greetings/meta prompts
@@ -249,3 +254,4 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+

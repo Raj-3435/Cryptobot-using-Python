@@ -5,4 +5,5 @@ matplotlib
 pandas
 rapidfuzz
 python-dotenv
-CoinGecko
+crypto_data
+pycoingecko
